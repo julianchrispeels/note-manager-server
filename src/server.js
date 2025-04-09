@@ -8,6 +8,8 @@ const startServer = async () => {
 		// Check if DB_URI is defined
 		if (!DB_URI) {
 			throw new Error('DB_URI is not defined in the environment variables');
+		} else {
+			console.log('DB_URI is defined:', DB_URI);
 		}
 		// Connect to the database
 		await sequelize.sync();
