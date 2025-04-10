@@ -6,13 +6,6 @@ import router from './routes/notes.routes.js';
 
 const app = express();
 
-// Check if DB_URI is defined
-if (!CLIENT_URL) {
-    throw new Error('CLIENT_URL is not defined in the environment variables');
-} else {
-    console.log('CLIENT_URL is defined:', CLIENT_URL);
-}
-
 const corsOptions = {
     origin: CLIENT_URL,
 };
