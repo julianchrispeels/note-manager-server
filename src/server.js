@@ -1,16 +1,10 @@
 import app from './app.js';
 import sequelize from './database/db.js';
-import { PORT, DB_URI } from './config/config.js';
+import { PORT } from './config/config.js';
 
 // Define a function that will connect to the database and start the server
 const startServer = async () => {
 	try {
-		// Check if DB_URI is defined
-		if (!DB_URI) {
-			throw new Error('DB_URI is not defined in the environment variables');
-		} else {
-			console.log('DB_URI is defined:', DB_URI);
-		}
 		// Connect to the database
 		await sequelize.sync();
 		console.log('Connection has been established successfully.');
