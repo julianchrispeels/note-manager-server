@@ -6,8 +6,18 @@ import router from './routes/notes.routes.js';
 
 const app = express();
 
+const allowedOrigins = [CLIENT_URL];
+
 const corsOptions = {
-    origin: CLIENT_URL,
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            console.log('Request blocked by CORS policy for origin:', origin);
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true, // allow cookies to be sent
 };
 
 app.use(cors(corsOptions));
