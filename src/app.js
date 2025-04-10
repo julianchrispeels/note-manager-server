@@ -6,11 +6,12 @@ import router from './routes/notes.routes.js';
 
 const app = express();
 
-const corsOptions = {
+/*const corsOptions = {
     origin: CLIENT_URL,
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));*/
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/v1/notes', router);
